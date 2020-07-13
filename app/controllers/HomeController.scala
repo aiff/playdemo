@@ -1,22 +1,14 @@
 package controllers
 
 import javax.inject._
-import play.api.mvc.{AbstractController, Action, AnyContent, ControllerComponents}
+import play.api.mvc._
 
-/**
-  * AssetsController
-  *
-  * @author Archx[archx@foxmail.com]
-  *         at 2018/9/27 14:07
-  */
-class HomeController @Inject()(components: ControllerComponents, assets: Assets)
-  extends AbstractController(components) {
+@Singleton
+class HomeController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
-  //  def assets(file: String): Action[AnyContent] = {
-  //    assets.at(file)
-  //  }
-
-  def index = Action {
-    //sOk(views.html.index("Todo List")
+  def index = Action { implicit request: Request[AnyContent]
+    =>
+    Ok("Your new application is ready.")
   }
+
 }
