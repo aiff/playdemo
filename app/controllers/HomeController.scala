@@ -10,5 +10,8 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     =>
     Ok("Your new application is ready.")
   }
-
+def index2= Action { implicit request: Request[AnyContent]
+=>
+  Ok("Your new application is ready.")
+}
 }

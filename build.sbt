@@ -1,17 +1,13 @@
-name := "PlayScala"
- 
-version := "1.0" 
-      
-lazy val `playscala` = (project in file(".")).enablePlugins(PlayScala)
+name := """play-scala-seed"""
+organization := "com.example"
 
-resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
-      
-resolvers += "Akka Snapshot Repository" at "https://repo.akka.io/snapshots/"
-      
-scalaVersion := "2.12.2"
+version := "1.0-SNAPSHOT"
 
-libraryDependencies ++= Seq( jdbc , ehcache , ws , specs2 % Test , guice,"mysql" % "mysql-connector-java" % "5.1.41","org.sorm-framework" % "sorm" % "0.3.21","com.h2database" % "h2" % "1.3.168")
+lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
-unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )  
+scalaVersion := "2.12.8"
 
-      
+crossScalaVersions := Seq("2.12.8", "2.11.12")
+
+libraryDependencies += guice
+libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.2" % Test
